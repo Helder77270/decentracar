@@ -11,18 +11,22 @@
       />
 
       <span> Hyperledger project </span>
-      <span>
+      <span v-if="isConnected">
         <router-link :to="{ name: 'Admin' }">
           <v-btn text > Admin actions </v-btn>
         </router-link>
       </span>
+      <span>{{isConnected}}</span>
     </div>
 
     <v-spacer></v-spacer>
 
-    <router-link :to="{ name: 'Login' }">
+<div v-if="isConnected">
+  <router-link :to="{ name: 'Login' }">
       <v-btn text> Logout </v-btn>
     </router-link>
+</div>
+    
 
     <v-btn href="https://github.com/HelderSalvador" target="_blank" text>
       <span class="mr-2">Our Github</span>
@@ -32,6 +36,8 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
   data() {
     return {
@@ -42,5 +48,11 @@ export default {
       ],
     };
   },
+  methods:{
+    ...mapActions("setConnected")
+  },
+  computed:{
+    ...mapGetters("isConnected")
+  }
 };
 </script>

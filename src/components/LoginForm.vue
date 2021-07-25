@@ -26,7 +26,7 @@
       </v-row>
 
       <router-link :to="{ name: 'Dashboard' }" class="login_button">
-        <v-btn color="primary"> Submit</v-btn>
+        <v-btn color="primary" > Submit</v-btn>
       </router-link>
     </v-col>
   </v-card>
@@ -34,6 +34,8 @@
 
       
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   data() {
     return {
@@ -44,6 +46,9 @@ export default {
         min: (v) => v.length >= 8 || "Min 8 characters",
       },
     };
+  },
+   methods:{
+    ...mapActions("setConnected")
   },
 };
 </script>

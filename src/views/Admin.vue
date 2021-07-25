@@ -18,9 +18,9 @@
 </template>
 
 <script>
-import Navbar from "../components/Navbar";
+import Navbar from "@/components/Navbar";
 
-import AdminActions from "../components/AdminActions";
+import AdminActions from "@/components/AdminActions";
 
 export default {
   name: "App",
